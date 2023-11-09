@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AppBar, InputBase, Toolbar, Typography, Avatar, makeStyles, IconButton, Drawer, List, ListItem } from '@material-ui/core'
 import logo from './logo.png'
 import SearchIcon from '@material-ui/icons/Search'
 import MenuIcon from '@material-ui/icons/Menu'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   const [mobile, setMobile] =useState(true)
   const [draweropen, setDraweropen]=useState(false)
   const classes = useStyles()
   
+  useEffect(()=>{
+    const responsiveness = () => window.innerWidth < 600 ? setMobile(true) : setMobile(false)
+    responsiveness();
+    window.addEventListener("resize", ()=> responsiveness())
+  },[mobile])
   
   const displayMobile = () => {
     const handleDrawerOpen=() => {
@@ -30,7 +36,7 @@ const Header = () => {
       })
      }
     return(
-      <Toolbar>
+      <Toolbar className={classes.toolbar} >
       <IconButton {...{
           edge: "start", 
           color: "#ccc",
@@ -42,18 +48,27 @@ const Header = () => {
       </IconButton>
           <Drawer {...{
             anchor: "left",
-            open: handleDrawerOpen,
+            open: draweropen,
             onClose: handleDrawerClose,
           }}>
             <div>{getDrawerChoices()}</div>
           </Drawer>
-
+          <Link to="/">
+              <img src={logo} className={classes.image} alt='logo'/>
+          </Link>
+          <div className={classes.right}>
+            <Typography>Sign in </Typography>
+            <Avatar className={classes.avatar}/>
+          </div>
     </Toolbar>
     )
     }
   const displayDesktop = () => (
         <Toolbar className={classes.toolbar}>
-          <img src={logo} alt="Logo" className={classes.image} />
+          <Link to="/">
+              <img src={logo} alt="Logo" className={classes.image} />
+          </Link>
+          
           <div className={classes.center}>
             <InputBase fullWidth placeholder='Search here...' inputProps={{className: classes.input}}/> 
             <SearchIcon/>
