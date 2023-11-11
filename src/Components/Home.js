@@ -1,11 +1,32 @@
-import React from 'react'
+import { CssBaseline, makeStyles } from '@material-ui/core';
+import Banner from './Banner';
+import RoomCard from './RoomCard';
+import DatePicker from './DatePicker';
+
 
 const Home = () => {
+  const classes = useStyles();
+
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <>
+      <CssBaseline />
+      <div className={classes.root}>
+        <div className={classes.dates}>
+          <DatePicker/>
+        </div>
+        <Banner />
+        <div className={classes.section}>
+          <RoomCard />
+          <RoomCard />
+          <RoomCard />
+          <RoomCard />
+        </div>
+      </div>
+    </>
   );
 };
 
-export default Home
+const useStyles = makeStyles((theme) => ({}));
+
+export default Home;
+
