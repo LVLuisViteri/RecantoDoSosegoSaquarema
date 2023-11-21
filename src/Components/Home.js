@@ -3,6 +3,7 @@ import Banner from './Banner';
 import RoomCard from './RoomCard';
 import DatePicker from './DatePicker';
 import React, { useEffect, useState } from 'react';
+import MockData from '../MockData'
 
 
 const Home = () => {

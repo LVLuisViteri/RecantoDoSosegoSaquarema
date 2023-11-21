@@ -37,7 +37,7 @@ const DatePicker = () => {
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "absolute",
-    top: "13vh",
+    top: "17vh",
     left: "30vw",
     zIndex: "50",
     [theme.breakpoints.down("xs")]: {
