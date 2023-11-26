@@ -1,9 +1,9 @@
-import areaDeChurrasco from "./Area de churrasco.jpeg"
-import piscina from "./Piscina.jpg"
-import sala from "./Sala.jpg"
-import cocina from "./Cocina.jpg"
+import areaDeChurrasco from "./Components/Area de churrasco.jpeg"
+import piscina from "./Components/Piscina.jpg"
+import sala from "./Components/Sala.jpg"
+import cocina from "./Components/Cocina.jpg"
 
-const mockData = [
+export const MockData = [
     {
         src: areaDeChurrasco,
         title: "Area de churrasco",
@@ -27,4 +27,10 @@ const mockData = [
     }
 ];
 
-export default mockData;
+export const chips = [
+    {key: 0, label: "Cancellation Flexibility"},
+    {key: 1, label: "Standard rooms"},
+    {key: 2, label: "Executivve rooms"},
+    {key: 3, label: "Access to lounge"},
+    {key: 4, label: "more filters"},
+];
